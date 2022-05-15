@@ -11,6 +11,7 @@ const proxy = undefined;
 const myCache = new NodeCache();
 
 app.post('/start', async (req, res) => {
+	console.log(req.body)
 	let user_id = req.body.user_id;
 
 	const aki = new Aki({ region, childMode, proxy });
@@ -20,6 +21,7 @@ app.post('/start', async (req, res) => {
 });
 
 app.post('/get-by-id', async (req, res) => {
+	console.log(req.body)
 	let user_id = req.body.user_id;
 
 	let aki = myCache.get( user_id );
@@ -27,6 +29,7 @@ app.post('/get-by-id', async (req, res) => {
 });
 
 app.post('/answer', async (req, res) => {
+	console.log(req.body)
 	let user_id = req.body.user_id;
 	let answer = req.body.answer;
 
