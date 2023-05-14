@@ -3,7 +3,6 @@ const { Aki } = require('aki-api')
 const NodeCache = require( "node-cache" )
 
 const app = express()
-app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('Express JS on Vercel')
