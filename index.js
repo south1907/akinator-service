@@ -6,11 +6,7 @@ const app = express()
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Express JS on Vercel')
-})
-
-app.get('/ping', (req, res) => {
-    res.send('pong 🏓')
+    res.send('Express JS')
 })
 
 const region_default = 'en';
