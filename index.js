@@ -1,9 +1,15 @@
-var express = require('express');
-const { Aki } = require('aki-api');
-const NodeCache = require( "node-cache" );
+const express = require('express')
 
-var app = express();
+const app = express()
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Express JS on Vercel')
+})
+
+app.get('/ping', (req, res) => {
+    res.send('pong 🏓')
+})
 
 const region_default = 'en';
 // const region_default = 'en_animals';
@@ -38,10 +44,6 @@ const list_region = [
 const childMode = false;
 const proxy = undefined;
 const myCache = new NodeCache();
-
-app.get('/', (req, res) => {
-        res.send('Express JS on Vercel')
-    })
 
 app.post('/start', async (req, res) => {
 	console.log(req.body)
@@ -97,6 +99,14 @@ app.post('/answer', async (req, res) => {
 	res.json(aki);
 });
 
-app.listen(3000, function () {
-	console.log('app listening on port 3000.');
-});
+
+const port = process.env.PORT || 8080
+
+app.listen(port, (err, res) => {
+    if (err) {
+        console.log(err)
+        return res.status(500).send(err.message)
+    } else {
+        console.log('[INFO] Server Running on port:', port)
+    }
+})
