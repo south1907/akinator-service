@@ -1,6 +1,4 @@
 const express = require('express')
-const { Aki } = require('aki-api')
-const NodeCache = require( "node-cache" )
 
 const app = express()
 
